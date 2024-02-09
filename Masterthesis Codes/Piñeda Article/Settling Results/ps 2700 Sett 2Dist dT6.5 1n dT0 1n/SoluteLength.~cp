@@ -1,0 +1,17 @@
+//---------------------------------------------------------------------------
+#pragma hdrstop
+
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+#include "SoluteLength.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+#include "GlobalDefinitions.h"
+#include "SetupDatabase.h"
+#include "GlobalVariables.h"
+
+
+

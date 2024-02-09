@@ -1,0 +1,401 @@
+//---------------------------------------------------------------------------
+#ifndef SetupDatabaseH
+#define SetupDatabaseH
+//---------------------------------------------------------------------------
+
+
+#ifdef CADEArticlePreSetup
+
+        #ifndef NoAlgorithmPreSetup
+
+        #endif
+
+        #ifndef NoMeshPreSetup
+                #define mmacrox 1
+                #define mmacroy 1
+                #define mmicrox 200
+                #define mmicroy 200
+
+                #define Lmalhax 0.0079
+                #define Lmalhay 0.0079
+
+                #define dimmax 3
+                #define dimCA 2
+                #define dimVF 1
+        #endif
+
+        #ifndef NoHeatTransferPreSetup
+
+                //#define HomogenousVFTemperature
+                //#define VFHeatBalance
+                #define ZeroDimensions
+                //#define VirtualZeroDimensions
+
+                #define CoolingRate -45.0 // K/s
+
+                #define Tfarfieldup 298.0         // Distant Temperature
+                #define Tfarfielddown 298.0         // Distant Temperature
+                #define Tfarfieldleft 298.0
+                #define Tfarfieldright 298.0
+                #define Hconvectiondown 250.0 //250.0       // H of convection
+                #define Hconvectionup 0.0 //250.0
+                #define Hconvectionleft 0.0
+                #define Hconvectionright 0.0
+
+        #endif
+
+
+        #ifndef NoInitialPreSetup
+                #define dTinitial 0.0
+                #define To Tliq + dTinitial
+                #define tinitial 0.0
+                #define dtmax 0.001
+                #define tmax 8.0
+        #endif
+
+        #ifndef NoNucleationPreSetup
+                #define Nsmax 2.5e8             // Number of substracts in mould boundary
+                #define dTsnuc  0.5             // Boundary Substracts Mean supercooling
+                #define dTssigma 0.1            // Boundary Substracts standard deviation of supercooling
+                #define dTvnuc 0.0              // Volume Substracts Mean supercooling
+                #define dTvsigma 0.0            // Volume Substracts standard deviation of supercooling
+                #define Nvmax 5.5e8            // Number of substracts in mould volume
+
+                #define dTinstant 0.0
+
+                #define SubstractsNumber 30
+        #endif
+
+        #ifndef NoMaterialPreSetup
+                #define AlSi
+                #define Co 5.0
+        #endif
+
+        #ifndef NoSubstractPreSetup
+                        #define NUCLEATIONEXACT
+                        //#define NUCLEATIONCENTER
+                        //#define NUCLEATIONWALL
+                        #define NUCLEFT 0
+                        #define NUCRIGHT 0
+                        #define NUCUP 0
+                        #define NUCDOWN 0
+                        //#define NUCALLWALLDOWN
+
+                        //#define INITIALGRAIN
+
+        #endif
+
+                // Results
+
+        #ifndef NoResultsPreSetup
+                #define PRINTCADERESULTS
+                #define CADEResultsTimeInterval 0.01
+                #define PRINTGRAINS
+                #define PRINTCONTORNO
+                #define GrainsTimeInterval      1.0
+                #define PRINTPROFILES
+                #define ProfilesTimeInterval    0.01
+                #define PRINTTIME
+                #define TimeTimeInterval        CADEResultsTimeInterval
+
+                                #define THERMALPROFILE
+                                #define SOLIDFRACTIONPROFILE
+                                #define EUTETICFRACTIONPROFILE
+                                #define PRINTSOLUTEPROFILE
+                                //#define THERMALHOPPROFILE
+                                //#define SOLIDFRACTIONHOPPROFILE
+                                #define PRINTLIQUIDFRACTIONPROFILE
+
+
+
+        #endif
+#endif
+
+#ifdef ViniciusTFPreSetup
+
+                #ifndef NoAlgorithmPreSetup
+
+                #endif
+
+                #ifndef NoMeshPreSetup
+                                #define mmacrox 1
+                                #define mmacroy 20
+                                #define mmicrox 110
+                                #define mmicroy 11
+
+                                #define Lmalhax 0.07
+                                #define Lmalhay 0.14
+
+                                #define dimmax 3
+                                #define dimCA 2
+                                #define dimVF 1
+                #endif
+
+                #ifndef NoNucleationPreSetup
+                                #define Nsmax 2.5e8             // Number of substracts in mould boundary
+                                #define dTsnuc  0.5             // Boundary Substracts Mean supercooling
+                                #define dTssigma 0.1            // Boundary Substracts standard deviation of supercooling
+                                #define dTvnuc 4.5              // Volume Substracts Mean supercooling
+                                #define dTvsigma 0.5            // Volume Substracts standard deviation of supercooling
+                                #define Nvmax pow( pow( 267300.0 , 3.0)*M_PI/6.0 , 0.5)            // Number of substracts in mould volume
+                                #define dTinstant 0.0
+
+                                #define SubstractsNumber 30
+                #endif
+
+                #ifndef NoMaterialPreSetup
+                                #define AlSi
+                                #define Co 7.0
+                #endif
+
+                #ifndef NoInitialPreSetup
+
+                        #define dTinitial 100.0
+                        #define To Tliq + dTinitial
+
+                        #define tinitial 0.0
+                        #define dtmax 0.002
+                        #define tmax 1400.0
+
+                #endif
+
+                #ifndef NoSubstractPreSetup
+                        //#define NUCLEATIONEXACT
+                        #define NUCLEATIONCENTER
+                        #define NUCLEATIONWALL
+                        #define NUCLEFT 0
+                        #define NUCRIGHT 0
+                        #define NUCUP 0
+                        #define NUCDOWN 1
+
+                #endif
+
+                #ifndef NoHeatTransferPreSetup
+
+                                //#define HomogenousVFTemperature
+                                #define VFHeatBalance
+                                //#define ZeroDimensions
+                                //#define VirtualZeroDimensions
+
+                                #define CoolingRate -45.0 // K/s
+
+                                #define Tfarfieldup 298.0         // Distant Temperature
+                                #define Tfarfielddown 298.0         // Distant Temperature
+                                #define Tfarfieldleft 298.0
+                                #define Tfarfieldright 298.0
+                                #define Hconvectiondown 250.0 //250.0       // H of convection
+                                #define Hconvectionup 0.0 //250.0
+                                #define Hconvectionleft 0.0
+                                #define Hconvectionright 0.0
+
+                #endif
+
+                #ifndef NoResultsPreSetup
+                                //#define PRINTCADERESULTS
+                                #define CADEResultsTimeInterval 0.01
+                                #define PRINTGRAINS
+                                #define GrainsTimeInterval      50.0
+                                #define PRINTPROFILES
+                                #define ProfilesTimeInterval    1.0
+                                #define PRINTTIME
+                                #define TimeTimeInterval        0.1
+
+
+
+                                #define THERMALPROFILE
+                                #define SOLIDFRACTIONPROFILE
+                                #define EUTETICFRACTIONPROFILE
+                                #define PRINTSOLUTEPROFILE
+                                #define THERMALHOPPROFILE
+                                #define SOLIDFRACTIONHOPPROFILE
+
+                #endif
+
+
+#endif
+
+
+#ifdef WangBeckermann1994PreSetup
+
+                #ifndef NoMaterialPreSetup
+                                #define AlCu
+                                #define Co 3.0
+                #endif
+
+                #ifndef NoMeshPreSetup
+                                #define mmacrox 1
+                                #define mmacroy 20
+                                #define mmicrox 110
+                                #define mmicroy 11
+
+                                #define Lmalhax 0.05
+                                #define Lmalhay 0.10
+
+                                #define dimmax 3
+                                #define dimCA 2
+                                #define dimVF 1
+                #endif
+
+                #ifndef NoHeatTransferPreSetup
+
+                                //#define HomogenousVFTemperature
+                                #define VFHeatBalance
+                                //#define ZeroDimensions
+                                //#define VirtualZeroDimensions
+
+                                //#define CoolingRate -45.0 // K/s
+
+                                #define Tfarfieldup 298.0         // Distant Temperature
+                                #define Tfarfielddown 298.0         // Distant Temperature
+                                #define Tfarfieldleft 298.0
+                                #define Tfarfieldright 298.0
+                                #define Hconvectiondown 65.0 //250.0       // H of convection
+                                #define Hconvectionup 0.0 //250.0
+                                #define Hconvectionleft 0.0
+                                #define Hconvectionright 0.0
+
+                #endif
+
+                #ifndef NoNucleationPreSetup
+                                #define Nsmax 2.5e8             // Number of substracts in mould boundary
+                                #define dTsnuc  0.0             // Boundary Substracts Mean supercooling
+                                #define dTssigma 0.0            // Boundary Substracts standard deviation of supercooling
+                                #define dTvnuc 0.0              // Volume Substracts Mean supercooling
+                                #define dTvsigma 0.0            // Volume Substracts standard deviation of supercooling
+                                #define Nvmax 1.0e5            // Number of substracts in mould volume
+                                #define dTinstant 0.0
+
+                                #define SubstractsNumber 30
+                #endif
+
+                #ifndef NoInitialPreSetup
+
+                        #define dTinitial 20.0
+                        #define To Tliq + dTinitial
+
+                        #define tinitial 0.0
+                        #define dtmax 0.002
+                        #define tmax 4000.0
+
+                #endif
+
+                #ifndef NoSubstractPreSetup
+                        //#define NUCLEATIONEXACT
+                        #define NUCLEATIONCENTER
+                        #define NUCLEATIONWALL
+                        #define NUCLEFT 0
+                        #define NUCRIGHT 0
+                        #define NUCUP 0
+                        #define NUCDOWN 1
+                        #define NUCALLWALLDOWN
+
+                #endif
+
+#endif
+
+
+
+#ifdef AlSi
+
+
+        #ifdef Co5
+
+                #define Co 5.0
+
+                #define Tliq 894.5         // Liquidus Temperature for the given composition (7% w Si) (Kelvin)
+                #define Tf 933.0
+                #define Teut 850.0         // Eutetic Temperature (Estimated Value) (ºC)
+
+                #define a2 0.00000290           // Estimated Parameter for Dendritic Tip Growth Approximation
+                #define a3 0.00000149           // Estimated Parameter for Dendritic Tip Growth Approximation
+
+                #define liquiddensity 2370.0
+                #define soliddensity 2535.0
+                #define viscosity 0.001
+
+                #define Cp 921.5        // J/kg/K
+                #define Lf 372000.0      // J/kg
+
+                #define ml -7.7        // Liquidus Slope
+                #define kpart 0.117      // Partition Coefficient
+                #define Tm 933.0        // Melt Temperature
+
+                #define GibbsThompson 9.8e-8   // Gibb-Thomspon Coefficient
+                #define DiffLiq 3.0e-9
+                //double Kl(){return 176.0;}
+                //double Ks(){return 200.0;}
+                
+        #endif
+
+
+
+        #ifdef Co7
+
+                #define Co 7.0
+
+                #define a2 0.00000290           // Estimated Parameter for Dendritic Tip Growth Approximation
+                #define a3 0.00000149           // Estimated Parameter for Dendritic Tip Growth Approximation
+                #define Tliq 891.0         // Liquidus Temperature for the given composition (7% w Si) (Kelvin)
+                #define Tf 936.5
+                #define Teut 850.0
+
+                #define liquiddensity 2370.0
+                #define soliddensity 2535.0
+                #define viscosity 0.001
+
+                #define Cp 1126.0
+                #define Lf 387400.0      // J/kg
+
+                #define ml -6.5         // Liquidus Slope
+                #define Tm 933.0        // Melt Temperature
+                #define kpart 0.13      // Partition Coefficient
+
+                #define GibbsThompson 1.96e-7   // Gibb-Thomspon Coefficient
+                #define DiffLiq 6.45e-9      // Solute Diffusivity
+
+
+
+
+        #endif
+
+
+
+
+#endif
+
+#ifdef AlCu
+
+        #ifdef Co3
+
+                #define Co 3.0
+
+                #define Tliq 922.89         // Liquidus Temperature for the given composition (7% w Si) (Kelvin)
+                #define Tf 933.0
+                #define Teut 821.0         // Eutetic Temperature (Estimated Value) (ºC)
+
+                #define a2 0.00000290           // Estimated Parameter for Dendritic Tip Growth Approximation
+                #define a3 0.00000149           // Estimated Parameter for Dendritic Tip Growth Approximation
+
+                #define liquiddensity 2370.0
+                #define soliddensity 2633.2
+                #define viscosity 0.001
+
+                #define Cp 1291.2        // J/kg/K
+                #define Lf 372000.0      // J/kg (Lf constant hypothesis)
+
+                #define ml -3.37        // Liquidus Slope
+                #define kpart 0.17      // Partition Coefficient
+                #define Tm 933.0        // Melt Temperature
+
+                #define GibbsThompson 9.8e-8   // Gibb-Thomspon Coefficient
+                #define DiffLiq 5.0e-9
+                //double Kl(){return 176.0;}
+                //double Ks(){return 200.0;}
+
+        #endif
+
+#endif
+
+
+
+#endif
